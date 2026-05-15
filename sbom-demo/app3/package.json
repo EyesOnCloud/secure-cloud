@@ -1,0 +1,23 @@
+{
+  "name": "etl-data-pipeline",
+  "version": "3.0.2",
+  "description": "ETL pipeline for processing financial transaction data",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "winston": "3.3.3",
+    "joi": "17.4.0",
+    "uuid": "8.3.2",
+    "moment": "2.29.1",
+    "async": "3.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Data Engineering Team",
+  "license": "UNLICENSED"
+}
