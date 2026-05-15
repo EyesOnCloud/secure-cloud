@@ -1,0 +1,24 @@
+{
+  "name": "customer-portal-api",
+  "version": "2.3.1",
+  "description": "Customer portal REST API for the financial services platform",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "lodash": "4.17.20",
+    "moment": "2.29.1",
+    "axios": "0.21.1",
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Platform Team",
+  "license": "UNLICENSED"
+}
