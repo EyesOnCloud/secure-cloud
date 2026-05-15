@@ -2,29 +2,42 @@
 # Security remediation applied — dependency review date: current
 # Reviewed by: Security Engineering Team
 
-# Web framework — updated to fix CVE-2023-30861 (session cookie leak)
+# Web framework — updated to latest stable secure release
 Flask==3.0.3
 
-# HTTP requests — updated to fix CVE-2023-32681 (proxy header injection)
-requests==2.31.0
+# HTTP requests — updated to fix:
+# CVE-2024-35195 (certificate verification bypass)
+# CVE-2024-47081 (.netrc credential leak)
+requests==2.33.0
 
-# Cryptography — updated to fix multiple CVEs including RSA decryption issues
-cryptography==42.0.8
+# Cryptography library — updated to fix:
+# CVE-2026-26007 (SECT curve subgroup validation issue)
+# GHSA-h4gh-qq45-vh27 (vulnerable bundled OpenSSL)
+cryptography==46.0.7
 
-# YAML parsing — updated to fix CVE-2022-1471 (arbitrary code execution)
+# YAML parsing — updated to fix:
+# CVE-2022-1471 (arbitrary code execution via unsafe loader)
 PyYAML==6.0.1
 
-# XML processing — updated to fix CVE-2022-2309, null byte injection
-lxml==4.9.3
+# XML processing — updated to fix:
+# CVE-2026-41066 (information disclosure via untrusted XML input)
+lxml==6.1.0
 
-# Image processing — updated to fix CVE-2023-44271 (DoS via crafted image)
-Pillow==10.3.0
+# Image processing — updated to fix:
+# CVE-2026-25990 (out-of-bounds write via crafted PSD image)
+# CVE-2026-40192 (DoS via decompression bomb)
+# CVE-2026-42308 / CVE-2026-42310 / CVE-2026-42311
+Pillow==12.2.0
 
-# Database ORM — updated to fix CVE-2022-0696
+# Database ORM — updated to latest secure stable release
 SQLAlchemy==2.0.30
 
-# JWT — CRITICAL: 1.x had no algorithm enforcement, completely rewritten in 2.x
-PyJWT==2.8.0
+# JWT handling — updated to fix:
+# CVE-2026-32597 (accepts unknown critical JWT header extensions)
+PyJWT==2.12.0
 
-# Template engine — updated to fix CVE-2024-34064
-Jinja2==3.1.4
+# Template engine — updated to fix:
+# CVE-2024-56201 (sandbox breakout via malicious filenames)
+# CVE-2024-56326 (sandbox breakout via indirect format reference)
+# CVE-2025-27516 (sandbox breakout through attr filter)
+Jinja2==3.1.6
