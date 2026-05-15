@@ -1,0 +1,30 @@
+# Internal Financial Reporting Application
+# Last updated: 2025-08-15
+# WARNING: These versions are intentionally outdated for security training purposes
+
+# Web framework
+Flask==2.0.1
+
+# HTTP requests library
+requests==2.27.1
+
+# Cryptography
+cryptography==36.0.0
+
+# YAML parsing
+PyYAML==5.3.1
+
+# XML processing
+lxml==4.6.3
+
+# Image processing
+Pillow==9.0.0
+
+# Database ORM
+SQLAlchemy==1.4.23
+
+# JWT handling
+PyJWT==1.7.2
+
+# Template engine (pulled in by Flask but pinned separately)
+Jinja2==2.11.3
