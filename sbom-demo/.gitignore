@@ -1,0 +1,6 @@
+node_modules/
+*.sbom.json
+*-sbom.json
+npm-debug.log
+.env
+.DS_Store
