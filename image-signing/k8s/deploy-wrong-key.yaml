@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wrong-key-app
+  namespace: lab-signed
+  labels:
+    app: wrong-key-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wrong-key-app
+  template:
+    metadata:
+      labels:
+        app: wrong-key-app
+    spec:
+      containers:
+        - name: wrong-key-app
+          image: SIGNED_IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 8080
