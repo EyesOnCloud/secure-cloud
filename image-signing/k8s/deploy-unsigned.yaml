@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unsigned-app
+  namespace: lab-signed
+  labels:
+    app: unsigned-app
+    signed: "false"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unsigned-app
+  template:
+    metadata:
+      labels:
+        app: unsigned-app
+    spec:
+      containers:
+        - name: unsigned-app
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
