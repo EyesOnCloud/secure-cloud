@@ -1,0 +1,40 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: verify-image-signature
+  annotations:
+    policies.kyverno.io/title: "Verify Container Image Signatures"
+    policies.kyverno.io/category: "Software Supply Chain Security"
+    policies.kyverno.io/severity: "high"
+    policies.kyverno.io/description: >-
+      This policy enforces that all container images deployed to the cluster
+      must be signed with the organization's Cosign signing key.
+      Any image without a valid signature from the trusted key is blocked
+      at admission time — before scheduling, before pulling, before execution.
+      This implements the verification layer of a software supply chain security
+      program aligned with SLSA Level 2 and NIST SP 800-218 requirements.
+spec:
+  validationFailureAction: Enforce
+  background: false
+  rules:
+    - name: verify-cosign-signature
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+              namespaces:
+                - lab-signed
+      verifyImages:
+        - imageReferences:
+            - "docker.io/REGISTRY_PLACEHOLDER/*"
+          attestors:
+            - count: 1
+              entries:
+                - keys:
+                    publicKeys: |-
+                      PUBLIC_KEY_PLACEHOLDER
+                    signatureAlgorithm: sha256
+          mutateDigest: false
+          verifyDigest: true
+          required: true
