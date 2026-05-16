@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return jsonify({
-        "service": "lab-signing-demo",
+        "service": "image-signing-demo",
         "version": os.environ.get("APP_VERSION", "1.0"),
         "status": "running",
         "message": "This image was signed with Cosign and verified by Kyverno"
