@@ -1,0 +1,4 @@
+# This file is intentionally minimal to demonstrate
+# what happens without proper .dockerignore configuration.
+# The COPY . . instruction in the insecure Dockerfile will copy
+# the .env file, .git directory, and all other files into the image.
