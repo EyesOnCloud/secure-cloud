@@ -1,0 +1,49 @@
+# FIX: .dockerignore prevents sensitive and unnecessary files
+# from being included in the Docker build context.
+# Without .dockerignore, COPY . . copies EVERYTHING in the directory
+# into the image — including secrets, test files, and dev artifacts.
+
+# Version control — never needed in a container image
+.git
+.gitignore
+
+# Environment files with local secrets — critical to exclude
+.env
+.env.*
+*.env
+
+# Python artifacts — not needed in source copy
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info
+dist/
+build/
+.eggs/
+
+# Test and development files — not needed at runtime
+tests/
+test_*
+*_test.py
+.pytest_cache
+.coverage
+htmlcov/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# CI/CD and documentation
+.github/
+docs/
+*.md
+Makefile
+
+# Other Dockerfiles and compose files
+docker-compose*.yml
+Dockerfile*
